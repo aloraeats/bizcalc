@@ -5,22 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BizCalc</title>
     <script>
-      // ─────────────────────────────────────
-      //  Works for both:
-      //  GitHub Pages → yourusername.github.io/bizcalc/
-      //  Custom domain → yourdomain.com/
-      // ─────────────────────────────────────
       (function () {
-        const path   = window.location.pathname;
-        const search = window.location.search;
-        const hash   = window.location.hash;
+        var path   = window.location.pathname;
+        var search = window.location.search;
+        var hash   = window.location.hash;
 
-        // Save full intended URL
+        // Save the full intended URL
         sessionStorage.setItem('redirect', path + search + hash);
 
         // Detect base and redirect to app root
-        const isGitHubPages = path.startsWith('/bizcalc');
-        const root          = isGitHubPages ? '/bizcalc/' : '/';
+        var isGitHubPages = path.indexOf('/bizcalc') === 0;
+        var root          = isGitHubPages ? '/bizcalc/' : '/';
 
         window.location.replace(root);
       })();

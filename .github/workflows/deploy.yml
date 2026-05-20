@@ -33,11 +33,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # ── Tell vite.config.ts we are on GitHub Pages ──
       - name: Build BizCalc
         run: npm run build
         env:
           GITHUB_PAGES: true
+
+      # ── Make sure 404.html is in dist ──
+      - name: Copy 404.html to dist
+        run: cp dist/index.html dist/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#00b894" />
     <meta name="description" content="Production and Sales Calculator for any business" />
-    <link rel="icon" type="image/png" href="./icons/icon-192.png" />
-    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+
+    <!--
+      Use relative paths so it works on both
+      GitHub Pages (/bizcalc/) and custom domain (/)
+    -->
+    <link rel="icon" type="image/png" href="icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
     <title>BizCalc</title>
 
     <script>
       // ── Restore route saved by 404.html ──
       (function () {
-        const redirect = sessionStorage.getItem('redirect');
+        var redirect = sessionStorage.getItem('redirect');
         if (redirect) {
           sessionStorage.removeItem('redirect');
           window.history.replaceState(null, '', redirect);
