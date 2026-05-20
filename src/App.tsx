@@ -11,7 +11,7 @@ import Calculator from '@/pages/Calculator'
 //  Custom domain → /
 //  Local dev     → /
 // ─────────────────────────────────────────
-const basename = import.meta.env.BASE_URL === '/bizcalc/'
+const basename = window.location.pathname.startsWith('/bizcalc')
   ? '/bizcalc'
   : '/'
 
