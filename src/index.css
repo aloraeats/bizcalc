@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    @apply bg-gray-50 font-sans text-gray-800 min-h-screen;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@layer components {
+  /* accent utility used dynamically via inline style */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100;
+  }
+
+  .section-title {
+    @apply text-sm font-bold text-gray-700 uppercase tracking-wide;
+  }
+
+  .hint-text {
+    @apply text-xs text-gray-400 leading-relaxed;
+  }
+
+  .table-header {
+    @apply bg-gray-50 border-b-2 border-gray-200;
+  }
+
+  .table-row {
+    @apply border-b border-gray-50 hover:bg-gray-50 transition-colors;
+  }
+
+  .result-cell {
+    @apply font-bold;
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #a1a1a1; }
+}
+
+/* PWA install banner animation */
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+.install-banner {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Print styles */
+@media print {
+  .no-print { display: none !important; }
+  .card { box-shadow: none !important; border: 1px solid #ddd !important; }
+  body { background: white !important; }
+}
